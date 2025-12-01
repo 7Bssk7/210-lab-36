@@ -6,15 +6,16 @@
 #include "StrBT.h"
 using namespace std;
 
+// Function prototypes for menu output
 void menu();
 void ds_menu();
 
 int main() {
 
-    fstream inFile("codes.txt");
-    StrBinaryTree tree;
-    string code;
-    int choice;
+    fstream inFile("codes.txt"); // Open the input file containing codes
+    StrBinaryTree tree; // Create a BST object
+    string code; // Temporary string to hold each code read from file
+    int choice; // User's menu choice
 
     if(!inFile){
         cout << "Failed to open the file!" << endl;
@@ -25,6 +26,7 @@ int main() {
     while(getline(inFile, code)){
         tree.insertNode(code);
     }
+    inFile.close();
 
     menu();
     cin >> choice;
