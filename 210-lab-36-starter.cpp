@@ -6,6 +6,8 @@
 #include "StrBT.h"
 using namespace std;
 
+const int CODE_SIZE = 8;
+
 // Function prototypes for menu output
 void menu();
 void ds_menu();
@@ -20,7 +22,6 @@ int main() {
     // Check if file opened successfully
     if(!inFile){
         cout << "Failed to open the file!" << endl;
-        inFile.close();
         return 1;
     }
 
@@ -49,7 +50,7 @@ int main() {
                 cout << "\nInput your code(8 characters long): ";
                 cin >> inCode;
                 // Validate code length (must be exactly 8 characters)
-                while((inCode.size() < 8) || (inCode.size() > 8) ){
+                while( inCode.size() != CODE_SIZE){
                     cout << "\nInvalid input, please enter your code again!" << endl;
                     cout << "Input your code(8 characters long): ";
                     cin >> inCode;
@@ -97,7 +98,7 @@ int main() {
                     cout << "Modify " << oldCode << " : ";
                     cin >> newCode;
                     // Validate new code length
-                    while((newCode.size() < 8) || (newCode.size() > 8) ){
+                    while( newCode.size() != CODE_SIZE){
                         cout << "\nInvalid input, please enter your code again!" << endl;
                         cout << "Modify " << oldCode << " : ";
                         cin >> newCode;
