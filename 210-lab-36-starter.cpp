@@ -28,8 +28,8 @@ int main() {
 
     menu();
     cin >> choice;
-    while(choice != 5){
-        if((choice < 1) || (choice > 5)){
+    while(choice != 6){
+        if((choice < 1) || (choice > 6)){
             cout << "\nInvalid input, please enter your choice again!" << endl;
             menu();
             cin >> choice;
@@ -72,6 +72,21 @@ int main() {
 
             }
             else if(choice == 4){
+                string oldCode, newCode;
+                cout << "What code would you like to modify?(8 characters long) -> ";
+                cin >> oldCode;
+                if(tree.searchNode(oldCode)){
+                    cout << oldCode << " was found successfully" << endl;
+                }
+                else{
+                    cout << "Code not found" << endl;
+                }
+
+
+
+
+            }
+            else if(choice == 5){
                 int ds_choice;
 
                 cout << "\nHow would you like to display the tree?" << endl;
@@ -84,13 +99,13 @@ int main() {
                 }
                 else{
                     if(ds_choice == 1){
-
+                        tree.displayInOrder();
                     }
                     else if(ds_choice == 2){
-
+                        tree.displayPreOrder();
                     }
                     else if(ds_choice == 3){
-
+                        tree.displayPostOrder();
                     }
                 }
             }
@@ -110,8 +125,9 @@ void menu(){
     cout << "\n1. Add code" << endl;
     cout << "2. Remove code" << endl;
     cout << "3. Search code" << endl;
-    cout << "4. Display code" << endl;
-    cout << "5. Exit" << endl;
+    cout << "4. Modify code" << endl;
+    cout << "5. Display code" << endl;
+    cout << "6. Exit" << endl;
     cout << "Enter your choice: ";
 }
 
