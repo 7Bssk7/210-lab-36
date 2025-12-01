@@ -20,12 +20,10 @@ int main() {
         inFile.close();
         return 1;
     }
-
-    /*
+    
     while(getline(inFile, code)){
         tree.insertNode(code);
     }
-    */    
 
     menu();
     cin >> choice;
@@ -46,7 +44,6 @@ int main() {
                     cin >> inCode;
                 }
                 tree.insertNode(inCode);
-                tree.displayInOrder();
             }
             else if(choice == 2){
 
