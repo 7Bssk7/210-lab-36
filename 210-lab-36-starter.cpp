@@ -27,8 +27,8 @@ int main() {
     menu();
     cin >> choice;
     while(choice != 5){
-        if((choice < 1) && (choice > 5)){
-            cout << "Invalid input, please enter your choice again!" << endl;
+        if((choice < 1) || (choice > 5)){
+            cout << "\nInvalid input, please enter your choice again!" << endl;
             menu();
             cin >> choice;
         }
