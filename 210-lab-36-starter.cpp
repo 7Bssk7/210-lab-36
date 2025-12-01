@@ -85,15 +85,18 @@ int main() {
                 }
 
             }
+            // Modify an existing code (remove old, insert new)
             else if(choice == 4){
                 string oldCode, newCode;
                 cout << "\nWhat code would you like to modify?(8 characters long) -> ";
                 cin >> oldCode;
+                // Check if old code exists
                 if(tree.searchNode(oldCode)){
                     cout << oldCode << " was found successfully" << endl;
 
                     cout << "Modify " << oldCode << " : ";
                     cin >> newCode;
+                    // Validate new code length
                     while((newCode.size() < 8) || (newCode.size() > 8) ){
                         cout << "\nInvalid input, please enter your code again!" << endl;
                         cout << "Modify " << oldCode << " : ";
@@ -103,6 +106,7 @@ int main() {
                     cout << oldCode << " modified successfully" << endl;
                     cout << "New code: " << newCode << endl;
 
+                    // Remove old code and insert new on
                     tree.remove(oldCode);
                     tree.insertNode(newCode);
                 }
@@ -110,29 +114,33 @@ int main() {
                     cout << "Code not found" << endl;
                 }
             }
+            // Output the tree in chosen traversal order
             else if(choice == 5){
                 int ds_choice;
 
                 cout << "\nHow would you like to display the tree?" << endl;
+                // Show output options
                 ds_menu();
                 cin >> ds_choice;
-                if((ds_choice < 1) || (ds_choice > 3)){
+                // Validate input
+                while((ds_choice < 1) || (ds_choice > 3)){
                     cout << "\nInvalid input, please enter your choice again!" << endl;
                     ds_menu();
                     cin >> ds_choice;
                 }
-                else{
-                    if(ds_choice == 1){
-                        tree.displayInOrder();
-                    }
-                    else if(ds_choice == 2){
-                        tree.displayPreOrder();
-                    }
-                    else if(ds_choice == 3){
-                        tree.displayPostOrder();
-                    }
+                // Output based on the users input
+                if(ds_choice == 1){
+                    tree.displayInOrder();
                 }
+                else if(ds_choice == 2){
+                    tree.displayPreOrder();
+                }
+                else if(ds_choice == 3){
+                    tree.displayPostOrder();
+                }
+                
             }
+            // Show menu again and get next choice
             menu();
             cin >> choice;
             
@@ -145,6 +153,9 @@ int main() {
     return 0;
 }
 
+// menu() - outputs the main menu 
+// arguments: none
+// return: none, void function 
 void menu(){
     cout << "\n1. Add code" << endl;
     cout << "2. Remove code" << endl;
@@ -155,6 +166,9 @@ void menu(){
     cout << "Enter your choice: ";
 }
 
+// menu() - outputs the traversal options 
+// arguments: none
+// return: none, void function 
 void ds_menu(){
     cout << "1.Display in order" << endl;
     cout << "2.Display preorder" << endl;
