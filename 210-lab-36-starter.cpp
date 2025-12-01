@@ -12,6 +12,7 @@ int main() {
     fstream inFile("codes.txt");
     StrBinaryTree tree;
     string code;
+    int choice;
 
     if(!inFile){
         cout << "Failed to open the file!" << endl;
@@ -23,6 +24,21 @@ int main() {
         tree.insertNode(code);
     }
 
+    menu();
+    cin >> choice;
+    while(choice != 5){
+        if((choice < 1) && (choice > 5)){
+            cout << "Invalid input, please enter your choice again!" << endl;
+            menu();
+            cin >> choice;
+        }
+        else{
+            menu();
+            cin >> choice;
+        }
+
+    }
+    
     
 
     return 0;
@@ -34,4 +50,5 @@ void menu(){
     cout << "3. Search code" << endl;
     cout << "4. Display code" << endl;
     cout << "5. Exit" << endl;
+    cout << "Enter your choice: ";
 }
