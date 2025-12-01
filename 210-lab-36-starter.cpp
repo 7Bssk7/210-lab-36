@@ -5,6 +5,8 @@
 #include "StrBT.h"
 using namespace std;
 
+void menu();
+
 int main() {
 
     fstream inFile("codes.txt");
@@ -21,7 +23,15 @@ int main() {
         tree.insertNode(code);
     }
 
-    tree.displayInOrder();    
+    
 
     return 0;
+}
+
+void menu(){
+    cout << "1. Add code" << endl;
+    cout << "2. Remove code" << endl;
+    cout << "3. Search code" << endl;
+    cout << "4. Display code" << endl;
+    cout << "5. Exit" << endl;
 }
