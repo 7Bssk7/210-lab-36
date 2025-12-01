@@ -8,6 +8,7 @@ using namespace std;
 int main() {
 
     fstream inFile("codes.txt");
+    StrBinaryTree tree;
     string code;
 
     if(!inFile){
@@ -17,10 +18,10 @@ int main() {
     }
 
     while(getline(inFile, code)){
-        StrBinaryTree tree;
-
         tree.insertNode(code);
     }
+
+    tree.displayInOrder();
 
     
     
