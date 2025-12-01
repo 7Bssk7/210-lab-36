@@ -1,7 +1,7 @@
 // COMSC-210 | Lab 36 | Arkhip Finski
 // IDE used: Visual Studio
 #include <iostream>
-#include "IntBinaryTree.h"
+#include "StrBST.h"
 using namespace std;
 
 int main() {
