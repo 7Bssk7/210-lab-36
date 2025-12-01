@@ -20,7 +20,7 @@ int main() {
         inFile.close();
         return 1;
     }
-    
+
     while(getline(inFile, code)){
         tree.insertNode(code);
     }
@@ -46,6 +46,18 @@ int main() {
                 tree.insertNode(inCode);
             }
             else if(choice == 2){
+                string delCode;
+                cout << "\nWhat code would you like to remove?(8 characters long) -> ";
+                cin >> delCode;
+                if(tree.searchNode(delCode)){
+                    cout << delCode << " was found successfully" << endl;
+                    cout << delCode << " is removed from the BST" << endl;
+                }
+                else{
+                    cout << "Code not found" << endl;
+                }
+
+                
 
             }
             else if(choice == 3){
@@ -66,7 +78,7 @@ int main() {
 }
 
 void menu(){
-    cout << "1. Add code" << endl;
+    cout << "\n1. Add code" << endl;
     cout << "2. Remove code" << endl;
     cout << "3. Search code" << endl;
     cout << "4. Display code" << endl;
