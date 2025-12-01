@@ -2,6 +2,7 @@
 // IDE used: Visual Studio
 #include <iostream>
 #include <fstream>
+#include <string>
 #include "StrBT.h"
 using namespace std;
 
@@ -20,9 +21,11 @@ int main() {
         return 1;
     }
 
+    /*
     while(getline(inFile, code)){
         tree.insertNode(code);
     }
+    */    
 
     menu();
     cin >> choice;
@@ -33,6 +36,27 @@ int main() {
             cin >> choice;
         }
         else{
+            if(choice == 1){
+                string inCode;
+                cout << "\nInput your code(8 characters long): ";
+                cin >> inCode;
+                while((inCode.size() < 8) || (inCode.size() > 8) ){
+                    cout << "\nInvalid input, please enter your code again!" << endl;
+                    cout << "Input your code(8 characters long): ";
+                    cin >> inCode;
+                }
+                tree.insertNode(inCode);
+                tree.displayInOrder();
+            }
+            else if(choice == 2){
+
+            }
+            else if(choice == 3){
+
+            }
+            else if(choice == 4){
+
+            }
             menu();
             cin >> choice;
         }
