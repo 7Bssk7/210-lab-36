@@ -2,7 +2,7 @@
 // IDE used: Visual Studio
 #include <iostream>
 #include <fstream>
-#include "StrBST.h"
+#include "StrBT.h"
 using namespace std;
 
 int main() {
@@ -21,10 +21,7 @@ int main() {
         tree.insertNode(code);
     }
 
-    tree.displayInOrder();
-
-    
-    
+    tree.displayInOrder();    
 
     return 0;
 }
