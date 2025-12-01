@@ -51,16 +51,23 @@ int main() {
                 cin >> delCode;
                 if(tree.searchNode(delCode)){
                     cout << delCode << " was found successfully" << endl;
+                    tree.remove(delCode);
                     cout << delCode << " is removed from the BST" << endl;
                 }
                 else{
                     cout << "Code not found" << endl;
                 }
-
-                
-
             }
             else if(choice == 3){
+                string srcCode;
+                cout << "What code would you like to search for?(8 characters long) -> ";
+                cin >> srcCode;
+                if(tree.searchNode(srcCode)){
+                    cout << srcCode << " was found successfully" << endl;
+                }
+                else{
+                    cout << "Code not found" << endl;
+                }
 
             }
             else if(choice == 4){
