@@ -17,30 +17,38 @@ int main() {
     string code; // Temporary string to hold each code read from file
     int choice; // User's menu choice
 
+    // Check if file opened successfully
     if(!inFile){
         cout << "Failed to open the file!" << endl;
         inFile.close();
         return 1;
     }
 
+    // Read codes line by line from file and insert them into the BST
     while(getline(inFile, code)){
         tree.insertNode(code);
     }
     inFile.close();
 
+    // Output menu and get initial choice
     menu();
     cin >> choice;
+
+    // Loop until user chooses option 6 (Exit)
     while(choice != 6){
+        // Validate input: must be between 1 and 6
         if((choice < 1) || (choice > 6)){
             cout << "\nInvalid input, please enter your choice again!" << endl;
             menu();
             cin >> choice;
         }
         else{
+            // Add a new code
             if(choice == 1){
                 string inCode;
                 cout << "\nInput your code(8 characters long): ";
                 cin >> inCode;
+                // Validate code length (must be exactly 8 characters)
                 while((inCode.size() < 8) || (inCode.size() > 8) ){
                     cout << "\nInvalid input, please enter your code again!" << endl;
                     cout << "Input your code(8 characters long): ";
@@ -48,10 +56,12 @@ int main() {
                 }
                 tree.insertNode(inCode);
             }
+            // Remove an existing code
             else if(choice == 2){
                 string delCode;
                 cout << "\nWhat code would you like to remove?(8 characters long) -> ";
                 cin >> delCode;
+                // Check if code exists before removing
                 if(tree.searchNode(delCode)){
                     cout << delCode << " was found successfully" << endl;
                     tree.remove(delCode);
@@ -61,10 +71,12 @@ int main() {
                     cout << "Code not found" << endl;
                 }
             }
+            // Search for a code
             else if(choice == 3){
                 string srcCode;
                 cout << "What code would you like to search for?(8 characters long) -> ";
                 cin >> srcCode;
+                // Search and report result
                 if(tree.searchNode(srcCode)){
                     cout << srcCode << " was found successfully" << endl;
                 }
