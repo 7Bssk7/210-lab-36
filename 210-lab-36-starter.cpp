@@ -73,18 +73,28 @@ int main() {
             }
             else if(choice == 4){
                 string oldCode, newCode;
-                cout << "What code would you like to modify?(8 characters long) -> ";
+                cout << "\nWhat code would you like to modify?(8 characters long) -> ";
                 cin >> oldCode;
                 if(tree.searchNode(oldCode)){
                     cout << oldCode << " was found successfully" << endl;
+
+                    cout << "Modify " << oldCode << " : ";
+                    cin >> newCode;
+                    while((newCode.size() < 8) || (newCode.size() > 8) ){
+                        cout << "\nInvalid input, please enter your code again!" << endl;
+                        cout << "Modify " << oldCode << " : ";
+                        cin >> newCode;
+                    }
+
+                    cout << oldCode << " modified successfully" << endl;
+                    cout << "New code: " << newCode << endl;
+
+                    tree.remove(oldCode);
+                    tree.insertNode(newCode);
                 }
                 else{
                     cout << "Code not found" << endl;
                 }
-
-
-
-
             }
             else if(choice == 5){
                 int ds_choice;
