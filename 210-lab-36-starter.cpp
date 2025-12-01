@@ -7,6 +7,7 @@
 using namespace std;
 
 void menu();
+void ds_menu();
 
 int main() {
 
@@ -71,10 +72,31 @@ int main() {
 
             }
             else if(choice == 4){
+                int ds_choice;
 
+                cout << "\nHow would you like to display the tree?" << endl;
+                ds_menu();
+                cin >> ds_choice;
+                if((ds_choice < 1) || (ds_choice > 3)){
+                    cout << "\nInvalid input, please enter your choice again!" << endl;
+                    ds_menu();
+                    cin >> ds_choice;
+                }
+                else{
+                    if(ds_choice == 1){
+
+                    }
+                    else if(ds_choice == 2){
+
+                    }
+                    else if(ds_choice == 3){
+
+                    }
+                }
             }
             menu();
             cin >> choice;
+            
         }
 
     }
@@ -90,5 +112,12 @@ void menu(){
     cout << "3. Search code" << endl;
     cout << "4. Display code" << endl;
     cout << "5. Exit" << endl;
+    cout << "Enter your choice: ";
+}
+
+void ds_menu(){
+    cout << "1.Display in order" << endl;
+    cout << "2.Display preorder" << endl;
+    cout << "3.Display postorder" << endl;
     cout << "Enter your choice: ";
 }
